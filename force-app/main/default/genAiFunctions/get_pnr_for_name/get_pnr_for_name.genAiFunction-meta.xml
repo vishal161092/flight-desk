@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Fetches the current TicketName and departure datetime from Data Cloud PNR_DMO for name correction processing.</description>
+    <invocationTarget>FD_GetPNRDetailsAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Get PNR For Name</masterLabel>
+</GenAiFunction>

@@ -1,0 +1,47 @@
+<template>
+    <div class="ci-container">
+        <div class="ci-header">
+            <span class="ci-header-title">Customer Intelligence</span>
+        </div>
+        <div class="ci-grid">
+            <div class="ci-card">
+                <div class="ci-icon-wrap">
+                    <lightning-icon icon-name="standard:account" alternative-text="LTV" size="small"></lightning-icon>
+                </div>
+                <div class="ci-label">Lifetime Value</div>
+                <div class="ci-value">$4,850</div>
+                <div class="ci-trend trend-up">↑ 12%</div>
+            </div>
+            <div class="ci-card">
+                <div class="ci-icon-wrap">
+                    <lightning-icon icon-name="standard:case" alternative-text="Track Record" size="small"></lightning-icon>
+                </div>
+                <div class="ci-label">Track Record</div>
+                <div class="ci-value">{CLTV}</div>
+                <div class="ci-trend trend-up">Top 10%</div>
+            </div>
+            <div class="ci-card">
+                <div class="ci-icon-wrap">
+                    <lightning-icon icon-name="utility:favorite" alternative-text="Membership" size="small"></lightning-icon>
+                </div>
+                <div class="ci-label">Zephyr Club</div>
+                <div class="ci-value">Silver</div>
+                <div class="ci-trend trend-neutral">Since 2019</div>
+            </div>
+            <div class="ci-card">
+                <div class="ci-icon-wrap">
+                    <lightning-icon icon-name="standard:events" alternative-text="NPS" size="small"></lightning-icon>
+                </div>
+                <div class="ci-label">Last NPS Score</div>
+                <div class="ci-value">{serviceNPS}</div>
+                <div class="ci-trend trend-up">↑ Promoter</div>
+            </div>
+        </div>
+        <!-- <div class="ci-footer">
+            <div class="ci-insight">
+                <span class="ci-insight-icon">✦</span>
+                <span class="ci-insight-text">High-value traveler — 47 flights this year, eligible for Platinum upgrade</span>
+            </div>
+        </div> -->
+    </div>
+</template>

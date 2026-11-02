@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Fetches the passenger booking record from Data Cloud PNR_DMO. Returns bag count, destination, cabin class, co-traveler PNR, current ticket name, and departure datetime.</description>
+    <invocationTarget>FD_GetPNRDetailsAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Get PNR Details</masterLabel>
+</GenAiFunction>

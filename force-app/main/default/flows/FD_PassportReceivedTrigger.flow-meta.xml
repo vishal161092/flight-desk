@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <description>Fires when a new inbound EmailMessage is created on a Case. If the email has a PDF attachment and the parent Case is a Name Correction or Multi-Intent case, sets FD_PassportReceived__c = true and re-invokes the agent to resume the name correction flow.</description>
+    <environments>Default</environments>
+    <interviewLabel>FD Passport Received Trigger {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FD Passport Received Trigger</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value><stringValue>LightningFlowBuilder</stringValue></value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <variables>
+        <name>parentCase</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>hasPDFAttachment</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value><booleanValue>false</booleanValue></value>
+    </variables>
+    <start>
+        <locationX>176</locationX>
+        <locationY>48</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Incoming</field>
+            <operator>EqualTo</operator>
+            <value><booleanValue>true</booleanValue></value>
+        </filters>
+        <object>EmailMessage</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+        <connector>
+            <targetReference>Get_Parent_Case</targetReference>
+        </connector>
+    </start>
+    <recordLookups>
+        <name>Get_Parent_Case</name>
+        <label>Get Parent Case</label>
+        <locationX>176</locationX>
+        <locationY>168</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Intent_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value><elementReference>$Record.ParentId</elementReference></value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <outputReference>parentCase</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>FD_IntentType__c</queriedFields>
+        <queriedFields>FD_PassportReceived__c</queriedFields>
+        <queriedFields>FD_PNRNumber__c</queriedFields>
+        <queriedFields>Subject</queriedFields>
+        <queriedFields>Description</queriedFields>
+    </recordLookups>
+    <decisions>
+        <name>Check_Intent_Type</name>
+        <label>Is This A Name Correction Case?</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Not Name Correction — Skip</defaultConnectorLabel>
+        <rules>
+            <name>Is_Name_Correction</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>parentCase.FD_IntentType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue><stringValue>Name Correction</stringValue></rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>parentCase.FD_IntentType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue><stringValue>Multi-Intent</stringValue></rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Already_Received</targetReference>
+            </connector>
+            <label>Yes — Name Correction or Multi-Intent</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Already_Received</name>
+        <label>Passport Already Received?</label>
+        <locationX>176</locationX>
+        <locationY>408</locationY>
+        <defaultConnectorLabel>Not Yet Received</defaultConnectorLabel>
+        <rules>
+            <name>Already_Received</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>parentCase.FD_PassportReceived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue><booleanValue>true</booleanValue></rightValue>
+            </conditions>
+            <label>Already Received — Skip</label>
+        </rules>
+        <defaultConnector>
+            <targetReference>Set_Passport_Received</targetReference>
+        </defaultConnector>
+    </decisions>
+    <recordUpdates>
+        <name>Set_Passport_Received</name>
+        <label>Set Passport Received = True</label>
+        <locationX>176</locationX>
+        <locationY>528</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value><elementReference>parentCase.Id</elementReference></value>
+        </filters>
+        <inputAssignments>
+            <field>FD_PassportReceived__c</field>
+            <value><booleanValue>true</booleanValue></value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <status>Active</status>
+</Flow>

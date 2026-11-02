@@ -1,0 +1,84 @@
+<template>
+
+
+
+    <div class="container">
+        <div class="header">
+            <h1 style="font-size: 20px; font-weight: bold; margin-bottom: 4px;">LOYALTY INSIGHTS</h1>
+            <!-- <p>Recent Activities & Updates</p> -->
+        </div>
+
+        <template if:true={loadingSpinner}>
+        <div style="position: relative; padding-top: 10rem">
+            <lightning-spinner
+            alternative-text="Fetching Records"
+            variant="brand"
+            ></lightning-spinner>
+            <div style="text-align: center; margin-top: -46px; position: relative; z-index: 999; color: #6A7280;"> Loading Loyalty Data </div>
+        </div>
+        </template>
+
+        <template if:false={loadingSpinner}>
+        <div class="loyalty-card">
+            <div class="card-top">
+                <div class="icon">✈️</div>
+                <div class="member-info">
+                    <div class="member-name">{fname} {lname}
+                        <!-- <template if:false={nameCheck}>
+                            <span style="padding-left:4px;"><lightning-icon icon-name="utility:warning" variant="warning" title="Name Mismatch" size="x-small"></lightning-icon></span>
+                        </template> -->
+                    </div>
+                    <div class="member-id">FFP Id: {clubMembershipId}</div>
+                    <!-- <div class="member-id">Club Points: {clubPoints}</div> -->
+                </div>
+                <div class="tier-badge" style="margin-top: 42px;">Silver</div>
+            </div>
+            
+            <div class="status-section">
+                <div class="status-row">
+                    <span class="status-indicator"></span>
+                    <div class="status-text">Active member since 2019</div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">                   
+                    <div class="stat-label">Tier Points</div>
+                    <div class="stat-value">20,000</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Flights This Year</div>
+                    <div class="stat-value">5</div>                   
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Total Spent</div>
+                    <div class="stat-value">$2,340</div>                    
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Gold Criteria</div>
+                    <div class="stat-value">30,000 Points / 45 Flights</div>                   
+                </div>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefits-title">
+                    🎯 Current Benefits
+                </div>
+                <div class="benefits-list">
+                    • Priority check-in<br>
+                    • Priority boarding<br>
+                    • Priority waitlist clearance<br>
+                    • Dedicated premium customer support <br>
+                    • Extra baggage allowance
+                </div>
+            </div>
+            
+            <div class="last-updated">
+                Updated just now
+            </div>
+        </div>
+        </template>
+    </div>
+
+
+</template>

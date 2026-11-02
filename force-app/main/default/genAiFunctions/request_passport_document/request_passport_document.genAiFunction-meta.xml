@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends an email to the customer requesting a copy of their passport PDF for international name corrections.</description>
+    <invocationTarget>FD_RequestPassportDocumentAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Request Passport Document</masterLabel>
+</GenAiFunction>

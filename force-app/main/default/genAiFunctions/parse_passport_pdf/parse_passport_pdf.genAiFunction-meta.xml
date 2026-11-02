@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Reads the most recent PDF attachment on the case email thread and extracts the passenger correct name using ICAO MRZ pattern matching.</description>
+    <invocationTarget>FD_ParsePassportPDFAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Parse Passport PDF</masterLabel>
+</GenAiFunction>

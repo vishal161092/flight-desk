@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>57.0</apiVersion>
+	<isExposed>true</isExposed>
+	<targets>
+		<target>lightning__RecordPage</target>
+		<target>lightning__AppPage</target>
+		<target>lightning__HomePage</target>
+		<target>lightning__Tab</target>
+		<target>lightning__FlowScreen</target>
+		<target>lightning__RecordAction</target>
+		<target>lightningCommunity__Page</target>
+		<target>lightningCommunity__Default</target>
+		<target>lightningCommunity__Page_Layout</target>
+		<target>lightningCommunity__Theme_Layout</target>
+	</targets>
+	<targetConfigs>  
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightningCommunity__Default">
+
+			<property name="Title" type="String" label="Title" default="Past and Future Itinerary" description="Enter the Title of the component"/>
+            <property name="TitleColor" type="String" label="Title Color" default="White" description="Enter Title Color"/>
+			
+			<property name="cardHeadColor" type="String" label="Card Head Color" default="#1B5C99" description="Enter Card Head Color"/>	
+			<property name="cardContentColor" type="String" label="Card Content Color" default="White" description="Enter Card Content Color"/>	
+			
+			<property name="cardPrimaryTextColor" type="String" label="Card Primary Text Color" default="White" description="Enter Card Primary Text Color"/>	
+			<property name="cardSecondaryTextColor" type="String" label="Card Secondary Text Color" default="White" description="Enter Card Secondary Text Color"/>	
+			
+			<property name="contentLabelnClassTextColor" type="String" label="Content Label and Class Text Color" default="#919191" description="Enter Content Label and Class Text Color"/>	
+			
+			<property name="contentPrimaryTextColor" type="String" label="Content Primary Text Color" default="Black" description="Enter Content Primary Text Color"/>	
+			<property name="contentSecondaryTextColor" type="String" label="Content Secondary Text Color" default="Black" description="Enter Content Secondary Text Color"/>	
+			
+			<property name="buttonColor" type="String" label="Button Color" default="#1B5C99" description="Enter Button Color"/>	
+			<property name="buttonBackgroundColor" type="String" label="Button Background Color" default="White" description="Enter Button Background Color"/>	
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

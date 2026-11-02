@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Updates the TicketName field on the Data Cloud PNR_DMO record to reflect the corrected name extracted from the passport.</description>
+    <invocationTarget>FD_UpdatePNRNameAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Update PNR Name</masterLabel>
+</GenAiFunction>

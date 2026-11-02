@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends a resolution email to the customer explaining the baggage ruling and updates FD_ResolutionSummary__c on the case.</description>
+    <invocationTarget>FD_SendBaggageResolutionAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Send Baggage Resolution</masterLabel>
+</GenAiFunction>

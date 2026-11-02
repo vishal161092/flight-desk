@@ -1,0 +1,102 @@
+.cm__tripCardWrapper {
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid #e0d4c0;
+  box-shadow: 0 4px 12px rgba(134, 22, 41, 0.08);
+}
+.appendTop16 {
+  margin-top: 16px;
+}
+.cm__cardHeaderDot {
+  margin-right: 15px;
+  position: relative;
+}
+.makeFlex {
+  display: flex;
+}
+.appendRight10 {
+  margin-right: 10px;
+}
+.myTripBtn--sec {
+  color: #C5A55A;
+  border: 1px solid #C5A55A;
+  background-color: rgba(197, 165, 90, 0.08);
+}
+.cm__journeySummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex: 1;
+}
+.makeRelative {
+  position: relative;
+}
+.myTripBtn {
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-transform: none;
+  padding: 10px 16px;
+}
+.cm__tripBookingSummary {
+  padding: 20px 0 20px 32px;
+}
+.cm__smryCrdActonLstTopBordr {
+  border-top: 2px dashed #e0d4c0;
+  position: relative;
+}
+.appendBottom4 {
+  margin-bottom: 4px;
+}
+.cm__headerIcon.grey {
+  background: #f5f0e8;
+}
+.cm__headerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.cm__cardHeader {
+  padding: 16px 20px 16px 32px;
+  position: relative;
+  background: linear-gradient(135deg, #861629, #6B1022) !important;
+  border-radius: 10px 10px 0 0;
+}
+.cm__headerIconWrapper {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  transform: translateX(-50%) translateY(-50%);
+  height: 43px;
+  width: 43px;
+  padding: 3px;
+  background: #fff;
+  border-radius: 50%;
+}
+.makeFlex.spaceBetween {
+  justify-content: space-between;
+}
+.cm__journeyLegSummary {
+  max-width: 160px;
+}
+.makeFlex .flexOne {
+  flex: 1;
+}
+.appendBottom4 {
+  margin-bottom: 4px;
+}
+.cm__giMyTripSprt {
+  background-size: 500px 850px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.cm__giMyTripSprt--flight--grey {
+  width: 34px;
+  height: 34px;
+  background-position: -267px -91px;
+}

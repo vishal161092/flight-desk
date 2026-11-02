@@ -1,0 +1,72 @@
+<template>
+    <div class="booking-container">
+        <div class="header">
+            Past Flights
+        </div>
+        <div class="records-container">
+            <template for:each={flightRecords} for:item="flight">
+                <div key={flight.id} class="record-card">
+                    <div class="record-row">
+                        <div class="field-block">
+                            <div class="field-label">
+                                <svg class="field-icon" viewBox="0 0 24 24">
+                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path>
+                                </svg>
+                                PNR
+                            </div>
+                            <div class="field-value">{flight.pnr}</div>
+                        </div>
+                        <div class="field-block" style="margin-left: -20px;">
+                            <div class="field-label">
+                                <svg class="field-icon" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                                </svg>
+                                Ticket Name
+                            </div>
+                            <div class="field-value">{flight.ticketName}</div>
+                        </div>
+                        <div class="field-block">
+                            <div class="field-label">
+                                <svg class="field-icon" viewBox="0 0 24 24">
+                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path>
+                                </svg>
+                                Flight#
+                            </div>
+                            <div class="field-value">{flight.flightNo}</div>
+                        </div>
+                    </div>
+
+                    <div class="record-row record-row-bottom">
+                        <div class="field-block">
+                            <div class="field-label">
+                                <svg class="field-icon" viewBox="0 0 24 24">
+                                    <path d="M7 17l5-5-5-5v10zm6 0l5-5-5-5v10z"></path>
+                                </svg>
+                                From/To
+                            </div>
+                            <div class="field-value">{flight.route}</div>
+                        </div>
+                        <div class="field-block" style="margin-left: 2px;">
+                            <div class="field-label">
+                                <svg class="field-icon gold-icon" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                                Class
+                            </div>
+                            <div class="field-value">{flight.cabinClass}</div>
+                        </div>
+                        <div class="field-block">
+                            <div class="field-label">
+                                <svg class="field-icon" viewBox="0 0 24 24">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v13c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15H5V10h14v9z"></path>
+                                </svg>
+                                Date
+                            </div>
+                            <div class="field-value">{flight.date}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

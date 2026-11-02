@@ -1,0 +1,186 @@
+<template>
+  <div style="padding-left: 14px">
+    <div
+      class="titleColor"
+      style="font-weight: 700; font-size: 1rem; color: white"
+    >
+      {Title}
+    </div>
+
+    <template if:true={loadingSpinner}>
+      <div style="position: relative; padding-top: 10rem">
+        <lightning-spinner
+          alternative-text="Fetching Records"
+          variant="brand"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <template for:each={itineraryDetails} for:item="itinerary">
+      <div class="cm__tripCardWrapper appendTop16" key={itinerary.Id}>
+        <div class="cm__cardHeader backgroundHeadColor">
+          <div class="cm__headerIconWrapper">
+            <span class="cm__headerIcon grey"
+              ><span class="cm__giMyTripSprt cm__giMyTripSprt--flight--grey">
+               <lightning-icon icon-name="utility:advertising" size="x-small"></lightning-icon> 
+                <!-- <lightning-icon icon-name="custom:custom20" size="x-small"></lightning-icon> -->
+                 </span
+            ></span>
+          </div>
+          <div class="makeFlex spaceBetween">
+            <div class="flexOne appendRight10">
+              <p class="appendBottom4">
+                <span
+                  class="quickSand quickSandBold font18 giBlackText cardPrimaryTextColor"
+                  style="font-size: 20px; font-weight: 700"
+                  >
+                  <!-- {itinerary.booking_name__c} -->
+                  {itinerary.departure_destination__c} - {itinerary.arrival_destination__c}
+                  </span
+                >
+              </p>
+              <p>
+                <span
+                  class="font14 cm__cardHeaderDot cardSecondaryTextColor"
+                  style="color: #8d9093"
+                  ><b> Flight# ZA173 </b></span
+                ><span
+                  class="font12 undefined cardSecondaryTextColor"
+                  style="color: #8d9093"
+                  ><b>PNR# {itinerary.pnr__c}  &nbsp;&nbsp;&nbsp;&nbsp; <span>Ticket#: 0982183637911</span> &nbsp;&nbsp;&nbsp;&nbsp; {itinerary.booking_name__c} </b></span
+                >
+              </p>
+            </div>
+            <div style="padding-top: 20px">
+              <a
+                class="font14 latoBold blueText myTripBtn myTripBtn--sec buttonColor"
+                onclick={openLink}
+                data-target-id={itinerary.Id}
+                >View & Manage Booking</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="cm__tripBookingSummary cm__smryCrdActonLstTopBordr cm__smryCrdActonLstTopBordrGrey backgroundContentColor"
+        >
+          <div class="">
+            <div class="">
+              <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                <div class="slds-size_1-of-3" style="width: 32%">
+                  <span
+                    class="font10 appendBottom7 contentLabelnClassTextColor"
+                    style="color: #8d9093; font-size: 10px; font-weight: 600"
+                    >DEPARTURE</span
+                  >
+                  <br />
+                  <span
+                    class="font16 quickSand quickSandBold giBlackText appendBottom7 contentPrimaryTextColor"
+                    style="font-size: 14px; font-weight: 700"
+                    >
+                    <lightning-formatted-date-time value={itinerary.departure_time__c} month="short" day="2-digit" hour="numeric" minute="2-digit"
+                                       weekday="short" time-zone="UTC"></lightning-formatted-date-time>  
+                    <!-- <span class="giGrey75Text"> {itinerary.Itinerary_Label_1_SubHeading__c}</span> -->
+                  </span>
+                  <br />
+                  <span
+                    class="giGrey75Text font12 lineHeight14 contentSecondaryTextColor"
+                    >  </span
+                  >
+                </div>
+                <div class="slds-size_1-of-3" style="width: 28%">
+                  <span
+                    class="font10 appendBottom7 contentLabelnClassTextColor"
+                    style="color: #8d9093; font-size: 10px; font-weight: 600"
+                    >ARRIVAL</span
+                  >
+                  <br />
+                  <span
+                    class="font16 quickSand quickSandBold giBlackText appendBottom7 contentPrimaryTextColor"
+                    style="font-size: 14px; font-weight: 700"
+                    >
+                    <lightning-formatted-date-time value={itinerary.arrival_time__c}  month="short" day="2-digit" hour="numeric" minute="2-digit"
+                                       weekday="short" time-zone="UTC" ></lightning-formatted-date-time>                                       
+                    <!-- <span class="giGrey75Text"> {ArrTime1}</span> -->
+                  </span>
+                  <br />
+                  <span
+                    class="giGrey75Text font12 lineHeight14 contentSecondaryTextColor"
+                    ></span
+                  >
+                </div>
+                <div
+                  class="slds-size_1-of-3"
+                  style="width: 40%; padding-left: 20px"
+                >
+                  <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                    <div
+                      class="slds-size_1-of-2"
+                      style="width: 95%"
+                    >
+                      <!-- <span
+                        class="contentPrimaryTextColor"
+                        style="font-weight: 600"
+                        >
+                        Zephyr Club Membership Linked: 
+                        <template if:true={itinerary.club_membership_id__c}>
+                          &nbsp;
+                          <lightning-icon icon-name="standard:task2" alternative-text="Connected" size="xx-small" title="xx-small size"></lightning-icon>
+                        </template>
+                        <template if:false={itinerary.club_membership_id__c}>
+                          &nbsp;
+                          <lightning-icon icon-name="standard:first_non_empty" alternative-text="Connected" size="xx-small" title="xx-small size" style="--slds-c-icon-color-background:red;"></lightning-icon>
+                        </template>
+                        </span -->
+                      
+                      <br />
+                      <span class="contentSecondaryTextColor" style="font-weight: 700;"
+                        >Status: {itinerary.flight_status__c}</span
+                      >
+                      <br />
+                      <span
+                        class="contentLabelnClassTextColor"
+                        style="
+                          font-weight: 600;
+                          font-size: 12px;
+                          color: rgb(141, 144, 147);
+                        "
+                        >Class: {itinerary.flight_class__c}</span
+                      >
+                    </div>
+                    <div
+                      class="slds-size_1-of-2"
+                      style="padding-top: 20px; width: 5%"
+                    >
+                      <div class="makeRelative cm__thumbnail">
+                        <div class="cm__thumbnail--flight">
+                          <img
+                            src={itinerary.Itinerary_Image_URL__c}
+                            style="height: 42px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <template if:true={itinerary.co_traveler_name__c}>
+            <div style="padding: 8px 16px; border-top: 1px solid #e0e0e0; display: flex; align-items: center;">
+              <lightning-icon icon-name="standard:people" size="xx-small" style="margin-right: 8px;"></lightning-icon>
+              <span class="contentPrimaryTextColor" style="font-weight: 600; font-size: 13px;">
+                Co-Traveler: {itinerary.co_traveler_name__c} 
+                <!-- (PNR: {itinerary.co_traveler_pnr__c}) -->
+              </span>
+              <!-- <span class="contentLabelnClassTextColor" style="margin-left: 16px; font-size: 12px;">
+                Bags: {itinerary.number_of_bags__c}
+              </span> -->
+            </div>
+          </template>
+          <div></div>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

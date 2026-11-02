@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Fetches the passenger Zephyr Club loyalty profile and membership tier from Data Cloud Loyalty_DMO.</description>
+    <invocationTarget>FD_GetLoyaltyDetailsAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Get Loyalty Details</masterLabel>
+</GenAiFunction>

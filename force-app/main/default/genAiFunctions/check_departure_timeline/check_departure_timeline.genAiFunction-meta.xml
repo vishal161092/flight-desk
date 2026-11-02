@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Calculates hours until departure and returns the name correction eligibility window per Zephyr Air policy.</description>
+    <invocationTarget>FD_CheckDepartureTimelineAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Check Departure Timeline</masterLabel>
+</GenAiFunction>

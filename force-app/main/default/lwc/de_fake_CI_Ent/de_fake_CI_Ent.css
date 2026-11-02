@@ -1,0 +1,105 @@
+.ci-container {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e0d4c0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(134, 22, 41, 0.08);
+}
+
+.ci-header {
+    background: linear-gradient(135deg, #861629, #6B1022);
+    padding: 12px 20px;
+    border-bottom: 3px solid #C5A55A;
+}
+
+.ci-header-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ci-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: 0;
+}
+
+.ci-card {
+    text-align: center;
+    padding: 16px 10px;
+    border-right: 1px solid #f0ebe3;
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+.ci-card:last-child {
+    border-right: none;
+}
+
+.ci-card:hover {
+    background: rgba(197, 165, 90, 0.05);
+}
+
+.ci-icon-wrap {
+    margin-bottom: 8px;
+}
+
+.ci-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #861629;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.ci-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.ci-trend {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.trend-up {
+    background: rgba(40, 167, 69, 0.1);
+    color: #1a7a34;
+}
+
+.trend-neutral {
+    background: rgba(197, 165, 90, 0.15);
+    color: #8a6d1b;
+}
+
+.ci-footer {
+    background: #faf8f4;
+    padding: 10px 16px;
+    border-top: 1px dashed #e0d4c0;
+}
+
+.ci-insight {
+    display: flex;
+    align-items: center;
+}
+
+.ci-insight-icon {
+    color: #C5A55A;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.ci-insight-text {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+}
